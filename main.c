@@ -40,7 +40,6 @@ treeNameNode *createTreeNameNode(char *treeName) {
   node->right = NULL;
   node->theTree = NULL;
 
-  // returning the node
   return node;
 }
 
@@ -49,7 +48,7 @@ treeNameNode *insertTreeName(treeNameNode *root, treeNameNode *element) {
   if (root == NULL) {
     return element;
   } else {
-    // element should be inserted to the right.
+    // element inserted to the right.
     if (strcmp(element->treeName, root->treeName) > 0) {
       // There is a right subtree to insert the node.
       if (root->right != NULL)
@@ -58,7 +57,7 @@ treeNameNode *insertTreeName(treeNameNode *root, treeNameNode *element) {
       else
         root->right = element;
     }
-    // element should be inserted to the left.
+    // element inserted to the left.
     else {
       // There is a left subtree to insert the node.
       if (root->left != NULL)
@@ -68,7 +67,6 @@ treeNameNode *insertTreeName(treeNameNode *root, treeNameNode *element) {
         root->left = element;
     }
   }
-  // Return the root pointer of the updated tree.
   return root;
 }
 
@@ -98,7 +96,6 @@ itemNode *insertItemNode(itemNode *root, itemNode *element) {
         root->left = element;
     }
   }
-  // Return the root pointer of the updated tree.
   return root;
 }
 
@@ -278,7 +275,7 @@ itemNode *parent(itemNode *root, itemNode *node) {
   // Look for node's parent in the right side of the tree.
   else if (strcmp(node->name, root->name) > 0)
     return parent(root->right, node);
-  return NULL; // Catch any other extraneous cases.
+  return NULL; // Catch any other  cases.
 }
 
 // determines the minimum value in a itemnode tree
@@ -367,7 +364,6 @@ itemNode *delete (itemNode *root, char *value) {
   return root;
 }
 
-// could be here
 itemNode *reduced(treeNameNode *name, itemNode *root, itemNode *node, int reduce) {
   node->count = node->count - reduce;
   if (node->count <= 0) {
@@ -389,7 +385,7 @@ treeNameNode *parent_tree(treeNameNode *root, treeNameNode *node) {
   // Look for node's parent in the right side of the tree.
   else if (strcmp(node->treeName, root->treeName) > 0)
     return parent_tree(root->right, node);
-  return NULL; // Catch any other extraneous cases.
+  return NULL; // Catch any other cases.
 }
 
 treeNameNode *minValT(treeNameNode *root) {
